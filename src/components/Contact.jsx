@@ -9,6 +9,11 @@ const Contact = () => {
         email: '',
         message: ''
     });
+    const [status, setStatus] = useState({
+        submitting: false,
+        success: false,
+        error: null
+    });
 
     const handleChange = (e) => {
         setFormData({
@@ -17,11 +22,44 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate form submission
-        alert('Thanks for reaching out! This is a demo form.');
-        setFormData({ name: '', email: '', message: '' });
+
+        // Check if the Formspree ID is still the placeholder
+        const FORMSPREE_ID = 'mgolyrng'; // Updated with your actual Formspree ID
+
+        if (FORMSPREE_ID === 'PLACEHOLDER_ID') {
+            setStatus({
+                submitting: false,
+                success: false,
+                error: 'Please set up your Formspree ID in Contact.jsx.'
+            });
+            return;
+        }
+
+        setStatus({ submitting: true, success: false, error: null });
+
+        try {
+            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setStatus({ submitting: false, success: true, error: null });
+                setFormData({ name: '', email: '', message: '' });
+                // Reset success message after 5 seconds
+                setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
+            } else {
+                const data = await response.json();
+                throw new Error(data.error || 'Oops! There was a problem submitting your form');
+            }
+        } catch (error) {
+            setStatus({ submitting: false, success: false, error: error.message });
+        }
     };
 
     return (
@@ -130,11 +168,32 @@ const Contact = () => {
                         <motion.button
                             type="submit"
                             className="btn btn-primary submit-btn"
+                            disabled={status.submitting}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            Send Message <Send size={18} />
+                            {status.submitting ? 'Sending...' : 'Send Message'} <Send size={18} />
                         </motion.button>
+
+                        {status.success && (
+                            <motion.div
+                                className="status-message success-message"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                            >
+                                Thanks for reaching out! Your message has been sent successfully.
+                            </motion.div>
+                        )}
+
+                        {status.error && (
+                            <motion.div
+                                className="status-message error-message"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                            >
+                                {status.error}
+                            </motion.div>
+                        )}
                     </motion.form>
                 </div>
             </div>
