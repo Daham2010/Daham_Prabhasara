@@ -20,7 +20,7 @@ const Footer = () => {
                 </div>
 
                 <p className="footer-copyright">
-                    &copy; {new Date().getFullYear()} Daham Prabhasara. All rights reserved.
+                    &copy; {new Date().getFullYear()} Daham Prabhasara. All rights reserved. Powerd by DahaX UI
                 </p>
             </div>
         </footer>
@@ -28,3 +28,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
