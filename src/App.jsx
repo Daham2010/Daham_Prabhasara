@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -25,6 +26,7 @@ function App() {
       </main>
       <Footer />
       <AIAssistant />
+      <SpeedInsights />
     </div>
   );
 }
