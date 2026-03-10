@@ -6,7 +6,7 @@ llm_config = {
     "config_list": [{
         "model": "deepseek-chat",
         "base_url": "https://api.deepseek.com/v1",
-        "api_key": os.environ.get("sk-fae9c78194314f798679a918afd76fea"),
+        "api_key": os.environ.get"sk-fae9c78194314f798679a918afd76fea,
     }]
 }
 
@@ -28,3 +28,4 @@ user_proxy = UserProxyAgent(
 
 # Start the collaboration
 user_proxy.initiate_chat(coder, message="Write a script to scrape news from a website.")
+
