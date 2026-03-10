@@ -1,31 +1,30 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import fs from 'fs';
-import path from 'path';
+import os
+from autogen import AssistantAgent, UserProxyAgent
 
-// Read .env file manually
-const envPath = path.resolve(process.cwd(), '.env');
-const envContent = fs.readFileSync(envPath, 'utf-8');
-const match = envContent.match(/VITE_GEMINI_API_KEY=(.+)/);
-const apiKey = match ? match[1].trim() : null;
-
-if (!apiKey) {
-    console.error("Could not find VITE_GEMINI_API_KEY in .env");
-    process.exit(1);
+# Configuration for DeepSeek
+llm_config = {
+    "config_list": [{
+        "model": "deepseek-chat",
+        "base_url": "https://api.deepseek.com/v1",
+        "api_key": os.environ.get("sk-fae9c78194314f798679a918afd76fea"),
+    }]
 }
 
-console.log("Testing Gemini API with key:", apiKey.substring(0, 5) + "..." + apiKey.substring(apiKey.length - 4));
+# Define a Coding Agent
+coder = AssistantAgent(
+    name="Coder",
+    llm_config=llm_config,
+    system_message="You are a senior developer. Write Python code to solve tasks."
+)
 
-const genAI = new GoogleGenerativeAI(apiKey);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+# Define a User Proxy to execute the code
+user_proxy = UserProxyAgent(
+    name="User",
+    human_input_mode="NEVER",
+    max_consecutive_auto_reply=10,
+    is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
+    code_execution_config={"work_dir": "coding", "use_docker": False}
+)
 
-async function test() {
-    try {
-        const result = await model.generateContent("Say hello!");
-        const response = await result.response;
-        console.log("Success! Response:", response.text());
-    } catch (error) {
-        console.error("Error:", error.message);
-    }
-}
-
-test();
+# Start the collaboration
+user_proxy.initiate_chat(coder, message="Write a script to scrape news from a website.")
