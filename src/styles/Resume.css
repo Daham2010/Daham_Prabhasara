@@ -1,0 +1,231 @@
+.resume-section {
+    position: relative;
+    background-color: var(--bg-secondary);
+}
+
+.resume-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+}
+
+.resume-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.resume-subtitle svg {
+    color: var(--accent-primary);
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    padding-left: 2rem;
+    margin-left: 0.5rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: calc(-2rem - 7px);
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.timeline-period {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.timeline-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.timeline-company {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.timeline-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Skill Bars */
+.skills-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.skill-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+    border-radius: 4px;
+}
+
+/* Education Cards */
+.edu-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+}
+
+.edu-degree {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.edu-institution {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0;
+}
+
+.edu-year {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* PRINT STYLES - The magic bit */
+@media print {
+
+    .navbar,
+    .footer,
+    .ai-assistant-container,
+    .print-btn,
+    .animated-bg-container,
+    .hero-section {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .resume-section {
+        padding: 0 !important;
+        background: white !important;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .resume-grid {
+        grid-template-columns: 1.2fr 0.8fr !important;
+        gap: 2rem !important;
+        color: black !important;
+    }
+
+    .resume-subtitle,
+    .timeline-title,
+    .edu-degree,
+    .accent-text {
+        color: #1a1a1b !important;
+    }
+
+    .timeline-period,
+    .skill-bar-fill {
+        background: #e2e2e2 !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .skill-bar-bg {
+        background: #f0f0f0 !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .timeline-dot {
+        background: black !important;
+        box-shadow: none !important;
+    }
+
+    .timeline {
+        border-left-color: #eee !important;
+    }
+
+    .edu-card {
+        background: white !important;
+        border-color: #eee !important;
+    }
+
+    .text-gradient {
+        -webkit-text-fill-color: black !important;
+    }
+}

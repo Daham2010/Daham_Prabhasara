@@ -1,0 +1,283 @@
+.about-section {
+    background-color: var(--bg-secondary);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.about-subtitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+    color: var(--text-primary);
+}
+
+.about-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.about-image-wrapper {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-image-wrapper:hover .about-image {
+    transform: scale(1.05);
+}
+
+/* What I Do Section */
+.what-i-do-container {
+    margin-bottom: 5rem;
+}
+
+.section-subheading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--bg-tertiary);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.service-num {
+    font-size: 3rem;
+    font-weight: 800;
+    opacity: 0.15;
+    color: var(--accent-primary);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: monospace;
+}
+
+.service-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.service-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Education and Approach Grid */
+.edu-approach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.section-title-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.accent-icon {
+    color: var(--accent-primary);
+}
+
+.section-subheading-small {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.edu-card, .approach-card {
+    background-color: var(--bg-tertiary);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 2.5rem;
+    height: calc(100% - 3.5rem);
+}
+
+.edu-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.edu-school {
+    font-size: 0.95rem;
+    color: var(--accent-secondary);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.edu-desc, .approach-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.edu-desc:last-child, .approach-desc:last-child {
+    margin-bottom: 0;
+}
+
+.approach-blockquote {
+    border-left: 3px solid var(--accent-primary);
+    padding-left: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    font-style: italic;
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    position: relative;
+}
+
+.quote-mark {
+    color: var(--accent-secondary);
+    font-size: 1.5rem;
+    font-family: serif;
+    vertical-align: middle;
+    line-height: 0;
+}
+
+/* Currently Exploring Section */
+.exploring-section {
+    margin-bottom: 5rem;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+    padding: 3rem;
+    border-radius: 24px;
+}
+
+.exploring-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+    margin-top: 2rem;
+}
+
+.exploring-badge {
+    background-color: var(--bg-tertiary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+/* Vision Card */
+.vision-card {
+    background: linear-gradient(135deg, var(--bg-tertiary), rgba(99, 102, 241, 0.05));
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    transition: box-shadow 0.4s ease;
+}
+
+.vision-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.vision-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.vision-text {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.vision-footer {
+    font-size: 1rem;
+    color: var(--accent-secondary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-image-container {
+        order: -1;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .edu-approach-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .edu-card, .approach-card {
+        height: auto;
+    }
+}
