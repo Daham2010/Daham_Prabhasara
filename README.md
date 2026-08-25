@@ -1,16 +1,69 @@
-# React + Vite
+# 🌐 Daham Prabhasara — Developer & Designer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance, and visually stunning personal portfolio website built with React, Vite, and Framer Motion. This site showcases professional experience, education, projects, current exploration areas, and features a built-in AI Assistant powered by the Google Gemini API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **🎨 Rich Aesthetics & Animations**: Sleek dark mode styling with glassmorphism, glowing accents, and smooth physics-based animations powered by **Framer Motion**.
+- **🧠 Gemini AI Assistant**: An interactive chat assistant configured with site-specific context to answer questions about skills, background, and projects in real-time.
+- **💼 Interactive Resume**: A structured experience timeline, categorized skill bars, and a print/download-optimized resume format.
+- **💻 Dynamic Projects Grid**: Hover-interactive, 3D-tilting cards highlighting key software developments.
+- **🎓 Education & Approach Layout**: Highlighting educational milestones and core development philosophies.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technology Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Framework**: [React 19](https://react.dev/) + [Vite 7](https://vite.dev/) (Client Environment)
+- **Styling**: Vanilla CSS3 Custom Variables + Responsive Flexbox/Grid
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **AI Integration**: [@google/generative-ai](https://www.npmjs.com/package/@google/generative-ai) (Gemini 2.0 Flash)
+- **3D Elements**: [Three.js](https://threejs.org/) + [React Three Fiber](https://r3f.docs.pmnd.rs/) (Background visuals)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install Dependencies
+Clone the repository and run:
+```bash
+npm install
+```
+
+### 2. Configure Environment Variables
+Create a `.env` file in the root directory and add your Google Gemini API key:
+```env
+VITE_GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 3. Development Server
+Run the local dev server:
+```bash
+npm run dev
+```
+
+### 4. Build for Production
+Create the optimized production build:
+```bash
+npm run build
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Images and visual media
+│   ├── components/      # React components (Navbar, Hero, About, Resume, Projects, AIAssistant, etc.)
+│   ├── styles/          # Component-specific stylesheet modules
+│   ├── App.jsx          # Root component orchestration
+│   ├── index.css        # Global CSS variables, resets, and styles
+│   └── main.jsx         # App entry point
+├── vite.config.js       # Vite configuration
+└── package.json         # Project manifests and scripts
+```
